@@ -14,7 +14,7 @@ body {
     padding-top: 10px;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, background-color 0.3s; /* transição adicionada */
 }
 
 #campo {
@@ -25,7 +25,7 @@ body {
     background-size: cover;
 }
 
-/* Edificações reduzidas */
+/* Edificações */
 .edificacao {
     width: 80px;
     height: 80px;
@@ -54,6 +54,19 @@ img {
     height: 100%;
 }
 
+/* Label com ID do inimigo */
+.edIdLabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Barra de vida do jogador */
 #playerLifeContainer {
     width: 60%;
     margin: 40px auto 0 auto;
