@@ -7,7 +7,6 @@ let playerLife = 100;
 const imgEdificacao =
   "https://theriagames.com/wp-content/uploads/2025/02/King_Tower_Red_Active-1.webp";
 
-// imagem de explosão estática
 const imgExplosao =
   "https://elements-resized.envatousercontent.com/elements-video-cover-images/video-previews/0e400de8-86b2-434e-8c93-393b170829fa/3wcFLmLSRUW5imTe2GlI_2uvxsr9wQSmLy7G8E58A_Explosion_v01__render_all_37.png?w=500&cf_fit=cover&q=85&format=auto&s=94c84f1b5c167eb0c93eae6646e5f43fb984ff761a806dd6ad09f8ceb8b028c1";
 
@@ -18,8 +17,7 @@ const tela = document.getElementById("tela");
 for (let i = 1; i <= NUM_EDIFICACOES; i++) {
     const div = document.createElement("div");
     div.className = "edificacao";
-    div.id = "ed" + i;
-
+    div.id = "ed" + i; // ID único
     div.dataset.life = 100;
 
     const maxX = campo.offsetWidth - 90;
@@ -34,10 +32,10 @@ for (let i = 1; i <= NUM_EDIFICACOES; i++) {
     div.innerHTML = `
         <div class="lifeBar"><div class="lifeFill"></div></div>
         <img id="img-ed${i}" src="${imgEdificacao}">
+        <span class="edIdLabel">${div.id}</span>
     `;
 
     div.onclick = () => atacarEdificacao(div);
-
     campo.appendChild(div);
 }
 
@@ -68,18 +66,21 @@ function atacarEdificacao(div) {
     }
 }
 
-// === ATAQUES DO INIMIGO A CADA 2 SEGUNDOS ===
+// === ATAQUES DO INIMIGO A CADA 2 SEGUNDOS (flash mais visível) ===
 setInterval(() => {
-
+    // Flash vermelho mais forte e rápido
+    tela.style.backgroundColor = "rgba(255,0,0,0.5)"; // vermelho semi-transparente
     tela.style.borderColor = "red";
 
     setTimeout(() => {
+        tela.style.backgroundColor = "transparent";
         tela.style.borderColor = "#444";
-    }, 500);
+    }, 300); // dura 300ms
 
+    // Reduz a vida do jogador
     playerLife -= 5;
+    if(playerLife < 0) playerLife = 0;
     document.getElementById("playerLifeBar").style.width = playerLife + "%";
-    
 }, 2000);
 
 // === MODAL ===
