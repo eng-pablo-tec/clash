@@ -1,0 +1,91 @@
+body {
+    background: #222;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#tela {
+    width: 100%;
+    height: 100vh;
+    border: 5px solid #444;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+#campo {
+    width: 100%;
+    height: 80%;
+    position: relative;
+    background-image: url('https://img.freepik.com/vetores-premium/grama-de-desenho-animado-de-textura-perfeita-padrao-de-plantas-verdes-para-papel-de-parede-ilustracao-pano-de-fundo-fundo-organico-para-o-jogo-gui_172107-1619.jpg?semt=ais_hybrid&w=740&q=80');
+    background-size: cover;
+}
+
+/* Edificações reduzidas */
+.edificacao {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    cursor: pointer;
+    transition: opacity 0.3s ease-out;
+}
+
+.lifeBar {
+    position: absolute;
+    top: -8px;
+    left: 5px;
+    width: 70px;
+    height: 5px;
+    background: red;
+}
+
+.lifeFill {
+    width: 100%;
+    height: 100%;
+    background: #00ff00;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+#playerLifeContainer {
+    width: 60%;
+    margin: 40px auto 0 auto;
+    height: 15px;
+    background: red;
+    border-radius: 10px;
+}
+
+#playerLifeBar {
+    width: 100%;
+    height: 100%;
+    background: #00ff00;
+    border-radius: 10px;
+}
+
+/* Modal */
+#winModal {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+#winBox {
+    background: white;
+    color: black;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
