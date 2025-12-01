@@ -33,7 +33,7 @@ for (let i = 1; i <= NUM_EDIFICACOES; i++) {
 
     div.innerHTML = `
         <div class="lifeBar"><div class="lifeFill"></div></div>
-        <img src="${imgEdificacao}">
+        <img id="img-ed${i}" src="${imgEdificacao}">
     `;
 
     div.onclick = () => atacarEdificacao(div);
